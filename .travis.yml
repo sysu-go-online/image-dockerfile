@@ -1,0 +1,19 @@
+sudo: required
+services:
+  - docker
+
+language: go
+go:
+  - "1.9"
+go_import_path: github.com/sysu-go-online/service-end
+
+env:
+  - DOCKER_COMPOSE_VERSION=1.21.0
+
+script:
+  - docker build -t txzdream/go-online-nginx_upsync:dev ./nginx-upsync/
+
+after_success:
+# Push to docker registry
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+  - docker push txzdream/go-online-nginx_upsync:devv
