@@ -5,15 +5,21 @@ services:
 language: go 
 go:
   - "1.9"
-go_import_path: github.com/sysu-go-online/service-end
+
+install:
+  - true
 
 env:
   - DOCKER_COMPOSE_VERSION=1.21.0
 
 script:
-  - docker build -t txzdream/go-online-nginx_upsync:dev ./nginx-upsync/
+  - docker build -t txzdream/go-online-golang_image ./golang/
+  - docker build -t txzdream/go-online-cpp_image ./cpp/
+  - docker build -t txzdream/go-online-python_image ./python/
 
 after_success:
 # Push to docker registry
   - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
-  - docker push txzdream/go-online-nginx_upsync:devv
+  - docker push txzdream/go-online-golang_image
+  - docker push txzdream/go-online-cpp_image
+  - docker push txzdream/go-online-python_image
