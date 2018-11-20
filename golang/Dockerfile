@@ -6,7 +6,6 @@ RUN useradd -ms /bin/zsh ubuntu
 USER ubuntu
 
 RUN git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh \
-    && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc \
-    && chsh -s /bin/zsh
+    && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 
 ENV LANG=C.UTF-8
