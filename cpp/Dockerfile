@@ -1,9 +1,14 @@
 FROM ubuntu
 
 RUN apt update && apt install -y g++ gdb git zsh
-RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
-RUN useradd -ms /bin/zsh ubuntu
 
+RUN useradd -ms /bin/zsh ubuntu
 USER ubuntu
+
+RUN git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh \
+    && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+    
+CMD /bin/zsh
+
 
 ENV LANG=C.UTF-8
