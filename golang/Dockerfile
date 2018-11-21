@@ -1,6 +1,6 @@
 FROM golang
 
-RUN apt update && apt install -y g++ gdb git zsh
+RUN apt update && apt install -y git zsh
 
 RUN useradd -ms /bin/zsh ubuntu
 USER ubuntu
