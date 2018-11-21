@@ -7,5 +7,7 @@ USER ubuntu
 
 RUN git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh \
     && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+    
+COMMAND /bin/zsh
 
 ENV LANG=C.UTF-8
