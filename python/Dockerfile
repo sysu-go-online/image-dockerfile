@@ -4,7 +4,7 @@ RUN apt update && apt install -y git zsh
 
 RUN useradd -ms /bin/zsh ubuntu
 
-RUN echo "root" | chpasswd
+RUN echo "root:root" | chpasswd
 
 USER ubuntu
 
