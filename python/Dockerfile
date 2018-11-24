@@ -3,6 +3,9 @@ FROM python:2
 RUN apt update && apt install -y git zsh
 
 RUN useradd -ms /bin/zsh ubuntu
+
+RUN echo "root" | chpasswd
+
 USER ubuntu
 
 RUN git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh \
