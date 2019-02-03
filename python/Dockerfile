@@ -1,17 +1,9 @@
 FROM python:2
 
-RUN apt update && apt install -y git zsh
-
-RUN useradd -ms /bin/zsh ubuntu
+RUN apt update && apt install -y git
 
 RUN echo "root:root" | chpasswd
 
-USER ubuntu
-
-RUN git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh \
-    && cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-    
-CMD /bin/zsh
-
+CMD /bin/bash
 
 ENV LANG=C.UTF-8

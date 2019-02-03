@@ -16,6 +16,7 @@ script:
   - docker build -t txzdream/go-online-golang_image ./golang/
   - docker build -t txzdream/go-online-cpp_image ./cpp/
   - docker build -t txzdream/go-online-python_image ./python/
+  - docker build -t txzdream/go-online-ubuntu_image ./ubuntu/
 
 after_success:
 # Push to docker registry
@@ -23,3 +24,4 @@ after_success:
   - docker push txzdream/go-online-golang_image
   - docker push txzdream/go-online-cpp_image
   - docker push txzdream/go-online-python_image
+  - docker push txzdream/go-online-ubuntu_image
